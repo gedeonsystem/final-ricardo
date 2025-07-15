@@ -20,6 +20,10 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       <TanStackRouterDevtools />
 
       <TanStackQueryLayout />
+
+      <div>
+        <p>Proyecto - Ricard Laica</p>
+      </div>
     </>
   ),
 })
