@@ -2,9 +2,12 @@ import { z } from 'zod'
 
 const TransaccionSchema = z.object({
   id: z.string().uuid(),
-  tipo: z.string(),
+  nombre: z.string(),
+  descripcion: z.string(),
   fecha: z.string(),
-  valor: z.number(),
+  monto: z.number(),
+  tipo: z.enum(['expense', 'income']),
+  archivo: z.string(),
 })
 
 export type TransaccionType = z.infer<typeof TransaccionSchema>
