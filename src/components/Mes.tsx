@@ -9,9 +9,8 @@ const Mes = (props) => {
   return (
     <div
       className={cn(
-        props.className,
-        'rounded-md shadow-lg border border-gray-100 dark:border-zinc-700',
-        'gap-y-1 bg-white',
+        'rounded-md shadow-lg gap-y-1',
+        'border border-gray-100 dark:border-zinc-700 bg-white',
         'flex flex-col justify-between',
       )}
     >
