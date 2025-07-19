@@ -45,7 +45,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem('items', JSON.stringify(items))
   }, [items])
-  setItems(items)
+
   const nro = items.length
   const meses = 2
 

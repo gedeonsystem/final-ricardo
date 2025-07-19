@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <header className="absolute top-0 left-0 w-full px-1 py-2 dark:border-zinc-800 dark:bg-zinc-800 flex justify-between items-center shadow-md">
+    <header className="top-0 left-0 w-full px-1 py-2 dark:border-zinc-800 dark:bg-zinc-800 flex justify-between items-center shadow-md">
       <a href="/" className="text-2xl font-bold text-black dark:text-white">
         LAICA -<span className="text-blue-700 dark:text-blue-400">Wallet</span>
       </a>

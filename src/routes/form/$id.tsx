@@ -12,7 +12,7 @@ const defaultValues: CreateEventoType = {
   descripcion: '',
   fecha: '',
   monto: 0,
-  tipo: [],
+  tipo: 'expense',
   archivo: '',
 }
 
