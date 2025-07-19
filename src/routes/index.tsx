@@ -1,14 +1,54 @@
+import { useState, useEffect } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import dayjs from 'dayjs'
 import Mes from '@/components/Mes'
+import type { EventoType } from '@/types/Evento'
+import { Link } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({
   component: App,
 })
 
 function App() {
-  const nro = 6
+  let lstEventos: EventoType[] = [
+    {
+      id: '1',
+      nombre: 'Compra',
+      descripcion: 'Compra de Dulces',
+      fecha: '2025-01-01',
+      monto: 100,
+      tipo: 'expense',
+      archivo: '',
+    },
+    {
+      id: '2',
+      nombre: 'Deposito',
+      descripcion: 'Pago',
+      fecha: '2025-02-01',
+      monto: 1000,
+      tipo: 'income',
+      archivo: '',
+    },
+    {
+      id: '3',
+      nombre: 'Deposito',
+      descripcion: 'Pago',
+      fecha: '2025-02-01',
+      monto: 1000,
+      tipo: 'income',
+      archivo: '',
+    },
+  ]
+
+  const [items, setItems] = useState(lstEventos)
+
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items))
+  }, [items])
+
+  const nro = items.length
   const meses = 2
+
   return (
     <main className="w-full px-4 pt-6">
       <div className="mt-1">
@@ -29,15 +69,16 @@ function App() {
               Calcular
             </button>
           </div>
-          <a
-            href="/event/form/"
+          <Link
             className="py-0.5 px-1 bg-blue-500 text-white rounded-md shadow-lg hover:bg-blue-600"
+            to="/form/$id"
+            params={{ id: 'new' }}
           >
             Agregar Evento
-          </a>
+          </Link>
         </div>
         <div>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between">
             <p className="text-lg font-semibold text-gray-800 dark:text-gray-200">
               Tu tienes {nro} eventos en {meses}
             </p>
