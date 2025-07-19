@@ -1,5 +1,3 @@
-import { Link } from '@tanstack/react-router'
-
 export default function Header() {
   return (
     <header className="absolute top-0 left-0 w-full px-1 py-2 dark:border-zinc-800 dark:bg-zinc-800 flex justify-between items-center shadow-md">
