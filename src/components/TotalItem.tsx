@@ -1,6 +1,9 @@
-import { cn } from '@/lib/utils'
+type ItemsProps = {
+  nombre: string
+  monto: number
+}
 
-const TotalItem = (props) => {
+const TotalItem = (props: ItemsProps) => {
   const { nombre, monto } = props
 
   return (

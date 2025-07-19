@@ -3,7 +3,11 @@ import Total from '@/components/Total'
 import dayjs from 'dayjs'
 import { cn } from '@/lib/utils'
 
-const Mes = (props) => {
+type MesProps = {
+  titulo: string
+}
+
+const Mes = (props: MesProps) => {
   const { titulo } = props
 
   return (

@@ -1,4 +1,3 @@
-import React from 'react'
 import TotalItem from './TotalItem'
 
 type Props = {}
