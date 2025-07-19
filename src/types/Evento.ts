@@ -1,11 +1,11 @@
-import { z } from 'zod'
+import * as z from 'zod'
 
 export const eventoSchema = z.object({
   id: z.string().uuid(),
-  nombre: z.string(),
-  descripcion: z.string(),
-  fecha: z.string(),
-  monto: z.number(),
+  nombre: z.string().min(0),
+  descripcion: z.string().min(0),
+  fecha: z.string().min(10),
+  monto: z.number().int().gte(1),
   tipo: z.enum(['expense', 'income']),
   archivo: z.string(),
 })

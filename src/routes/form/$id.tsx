@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { useAppForm } from '@/hooks/form'
 import { CreateEventoSchema, type CreateEventoType } from '@/types/Evento'
@@ -16,10 +17,27 @@ const defaultValues: CreateEventoType = {
 }
 
 function RouteComponent() {
+  const [items, setItems] = useState([])
+
+  useEffect(() => {
+    const i = localStorage.getItem('items')
+    if (i) {
+      setItems(JSON.parse(i))
+    }
+  }, [])
+
   const { id } = Route.useParams()
   console.log(`id; ${id}`)
   const form = useAppForm({
     defaultValues,
+    onSubmit: (values) => {
+      console.log('guardando')
+      console.log(values)
+    },
+    onSubmitInvalid(values) {
+      console.log('invalido')
+      console.log(values)
+    },
     validators: {
       onSubmit: CreateEventoSchema,
     },
@@ -30,8 +48,10 @@ function RouteComponent() {
       <div className="mt-4 flex flex-col gap-4 p-4 max-w-xl">
         <form
           onSubmit={(e) => {
+            console.log(items)
             e.preventDefault()
-            console.log('Guardar')
+            console.log(e)
+            form.handleSubmit()
           }}
         >
           <form.AppField
